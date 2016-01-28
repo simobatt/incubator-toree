@@ -15,6 +15,7 @@
  *  limitations under the License
  */
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+resolvers += "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
 
 //
 // JSON DEPENDENCIES

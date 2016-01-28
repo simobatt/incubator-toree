@@ -14,6 +14,8 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  */
+resolvers += "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
+
 // Do not export a jar for this or publish anything (should serve just as a pre-processor)
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
 

@@ -64,7 +64,7 @@ class SignatureManagerActor(
     // Check blob strings for matching digest
     case (signature: String, blob: Seq[_]) =>
       startProcessing()
-      val destActor = sender()
+      val destActor = sender
       val sigFuture = signatureChecker ? ((signature, blob))
 
       sigFuture foreach { case isValid =>
@@ -74,7 +74,7 @@ class SignatureManagerActor(
 
     case message: KernelMessage =>
       startProcessing()
-      val destActor = sender()
+      val destActor = sender
 
       // TODO: Proper error handling for possible exception from mapTo
       val sigFuture = (signatureProducer ? message).mapTo[String].map(

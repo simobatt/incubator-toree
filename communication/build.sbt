@@ -14,11 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  */
+resolvers += "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
 
 libraryDependencies ++= Seq(
   // LGPL with static linking exception
-  "org.zeromq"        % "jeromq"        % "0.3.4",
-  "com.typesafe.akka" %% "akka-actor"   % "2.3.11",
-  "com.typesafe.akka" %% "akka-slf4j"   % "2.3.11",
-  "com.typesafe.akka" %% "akka-testkit" % "2.3.11" % "test"
+  "org.zeromq" % "jeromq" % "0.3.4",
+  if (Common.sparkVersion.contains("cdh")) "org.spark-project.akka" % "akka-remote_2.10" % "2.2.3-shaded-protobuf" else "com.typesafe.akka" %% "akka-actor" % "2.3.11",
+  if (Common.sparkVersion.contains("cdh")) "org.spark-project.akka" % "akka-slf4j_2.10" % "2.2.3-shaded-protobuf" else "com.typesafe.akka" %% "akka-slf4j" % "2.3.11",
+  if (Common.sparkVersion.contains("cdh")) "org.spark-project.akka" % "akka-slf4j_2.10" % "2.2.3-shaded-protobuf" else "com.typesafe.akka" %% "akka-testkit" % "2.3.11" % "test"
+
 )
