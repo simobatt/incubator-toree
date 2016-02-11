@@ -14,6 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  */
+resolvers += "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
 
 //
 // TEST DEPENDENCIES
